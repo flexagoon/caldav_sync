@@ -1,0 +1,23 @@
+[caldav]
+url = "CalDAV Server URL"
+username = "foobar"
+password = "123456"
+
+
+[modules.Homework]
+domain = "myschool.eljur.ru"
+course_blacklist = [
+  1234,
+  5678
+]
+
+[modules.Homework.auth]
+username = "myname"
+password = "mypassword"
+
+
+[modules.Work]
+domain = "bitrix.example.com"
+token = "tnri34nyntru9"
+user_id = "1234"
+stage_id = ["4272", "4273"]
