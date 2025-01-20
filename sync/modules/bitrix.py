@@ -22,6 +22,6 @@ def sync(config: dict[str, Any], callback: CalDAVCallback) -> None:
             Task(
                 uid=task["id"],
                 summary=task["title"],
-                description=f"https://{config["domain"]}/workgroups/group/{task["groupId"]}/tasks/task/view/{task["id"]}",
+                description=f"https://{config["domain"]}/workgroups/group/{task["groupId"]}/tasks/task/view/{task["id"]}/",
             ),
         )
