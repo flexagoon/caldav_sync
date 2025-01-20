@@ -10,7 +10,7 @@ def sync(config: dict[str, Any], callback: CalDAVCallback) -> None:
         f"https://{config["domain"]}/rest/{config["user_id"]}/{config["token"]}/tasks.task.list",
         json={
             "filter": {
-                "RESPONSIBLE_ID": "3102",
+                "RESPONSIBLE_ID": config["user_id"],
                 "STAGE_ID": config["stage_id"],
             },
             "select": ["TITLE", "GROUP_ID"],
