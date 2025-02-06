@@ -4,7 +4,7 @@ from pathlib import Path
 
 import caldav
 
-from sync.modules import bitrix, homework
+from sync.modules import bitrix, homework, ozon
 from sync.task_types import Task, TaskSource
 
 
@@ -19,6 +19,7 @@ def add_task(task: Task, cal: caldav.Calendar) -> None:
 MODULES: dict[str, TaskSource] = {
     "Homework": homework.sync,
     "Work": bitrix.sync,
+    "Errands": ozon.sync,
 }
 
 

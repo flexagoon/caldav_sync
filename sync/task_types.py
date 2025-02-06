@@ -1,5 +1,5 @@
 from collections.abc import Callable
-from datetime import datetime
+from datetime import date, datetime
 from typing import Any, NamedTuple
 
 
@@ -9,7 +9,7 @@ class Task(NamedTuple):
     uid: str
     summary: str
     description: str
-    due: datetime | None = None
+    due: date | datetime | None = None
     priority: int = 0
 
 
