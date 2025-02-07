@@ -21,3 +21,8 @@ domain = "bitrix.example.com"
 token = "tnri34nyntru9"
 user_id = "1234"
 stage_id = ["4272", "4273"]
+
+
+[modules.Errands]
+access_token = "1234567890"
+refresh_token = "0987654321"
