@@ -7,7 +7,7 @@ from dateparser.search import search_dates
 from sync.task_types import CalDAVCallback, Task
 
 
-def sync(config: dict[str, Any], callback: CalDAVCallback) -> None:
+def sync(config: dict[str, Any], add_task: CalDAVCallback) -> None:
     widget_state = httpx.post(
         "https://api.ozon.ru/composer-api.bx/page/json/v2?url=/my/orderlist",
         headers={"user-agent": "ozonapp_android/18.2.0+2538"},
@@ -34,4 +34,4 @@ def sync(config: dict[str, Any], callback: CalDAVCallback) -> None:
                 due=due_date,
             )
 
-            callback(task)
+            add_task(task)

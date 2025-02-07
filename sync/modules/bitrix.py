@@ -5,7 +5,7 @@ import httpx
 from sync.task_types import CalDAVCallback, Task
 
 
-def sync(config: dict[str, Any], callback: CalDAVCallback) -> None:
+def sync(config: dict[str, Any], add_task: CalDAVCallback) -> None:
     tasks = httpx.post(
         f"https://{config["domain"]}/rest/{config["user_id"]}/{config["token"]}/tasks.task.list",
         json={
@@ -18,7 +18,7 @@ def sync(config: dict[str, Any], callback: CalDAVCallback) -> None:
     ).json()["result"]["tasks"]
 
     for task in tasks:
-        callback(
+        add_task(
             Task(
                 uid=task["id"],
                 summary=task["title"],

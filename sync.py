@@ -34,5 +34,5 @@ if __name__ == "__main__":
                 print(f"[{calendar.name}] Syncing")
                 source = MODULES[calendar.name]
                 module_config = config["modules"][calendar.name]
-                callback = functools.partial(add_task, cal=calendar)
-                source(module_config, callback)
+                add_callback = functools.partial(add_task, cal=calendar)
+                source(module_config, add_callback)

@@ -8,7 +8,7 @@ from sync.task_types import CalDAVCallback, Task
 FORMATIVE_TASK_TYPE = 202
 
 
-def sync(config: dict[str, Any], callback: CalDAVCallback) -> None:
+def sync(config: dict[str, Any], add_task: CalDAVCallback) -> None:
     with httpx.Client() as client:
         client.post(f"https://{config["domain"]}/ajaxauthorize", data=config["auth"])
 
@@ -25,7 +25,7 @@ def sync(config: dict[str, Any], callback: CalDAVCallback) -> None:
         if task["course_id"] in config["course_blacklist"]:
             continue
 
-        callback(
+        add_task(
             Task(
                 uid=str(task["id"]),
                 summary=task["name"],
